@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cristobal Lara — Software Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f2ed;
+    --ink: #1a1814;
+    --muted: #7a7468;
+    --accent: #2d5be3;
+    --line: #d8d4cc;
+    --tag-bg: #e8e4dc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 48px 80px;
+  }
+
+  /* HEADER */
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 1.5px solid var(--ink);
+    margin-bottom: 48px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .title-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  .contact {
+    text-align: right;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 2;
+  }
+
+  .contact a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .contact a:hover { text-decoration: underline; }
+
+  /* SECTIONS */
+  section {
+    margin-bottom: 44px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  section:nth-child(2) { animation-delay: 0.1s; }
+  section:nth-child(3) { animation-delay: 0.2s; }
+  section:nth-child(4) { animation-delay: 0.3s; }
+  section:nth-child(5) { animation-delay: 0.4s; }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ABOUT */
+  .about-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #3a3630;
+    max-width: 580px;
+  }
+
+  /* EXPERIENCE */
+  .job {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0 28px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .job:last-child { border-bottom: none; }
+
+  .job-period {
+    color: var(--muted);
+    font-size: 11px;
+    padding-top: 2px;
+    line-height: 1.5;
+  }
+
+  .job-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .job-company {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  .job-desc {
+    color: #4a4640;
+    font-size: 12.5px;
+    line-height: 1.75;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    gap: 12px;
+  }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .skill-category {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    padding-top: 3px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--line);
+    padding: 3px 10px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .tag:hover {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+
+  /* EDUCATION */
+  .edu {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0 28px;
+  }
+
+  .edu-period { color: var(--muted); font-size: 11px; }
+
+  .edu-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .edu-place {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 40px 24px 60px; }
+    header { grid-template-columns: 1fr; }
+    .contact { text-align: left; }
+    .job, .edu { grid-template-columns: 1fr; }
+    .job-period, .edu-period { margin-bottom: 4px; }
+    .skill-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="name">Cristobal <em>Lara</em><br>Bahamondes</div>
+      <div class="title-tag">Software Developer</div>
+    </div>
+    <div class="contact">
+      <div>+56 9 3428 3502</div>
+      <div><a href="mailto:cristobal.p.lara@gmail.com">cristobal.p.lara@gmail.com</a></div>
+      <div>Santiago, Chile</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-label">Sobre mí</div>
+    <p class="about-text">Ingeniero Civil en Ciencias de la Computación con foco en desarrollo web y diseño de software. Me caracterizo por aprender rápido, tomar decisiones con autonomía y moverme bien en entornos dinámicos. Responsable, comprometido y buen compañero de equipo.</p>
+  </section>
+
+  <section>
+    <div class="section-label">Experiencia</div>
+
+    <div class="job">
+      <div class="job-period">MAR 2026<br>Actualidad</div>
+      <div>
+        <div class="job-title">Desarrollador Frontend</div>
+        <div class="job-company">TesmoTech — Santiago, Chile</div>
+        <div class="job-desc">Desarrollo de interfaces web con Vue.js, consumiendo APIs REST e integrando funcionalidades de backend. Configuración de entornos Dockerizados, debugging y optimización de UX.</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-period">MAR 2025<br>FEB 2026</div>
+      <div>
+        <div class="job-title">Ayudante de Cátedra</div>
+        <div class="job-company">Universidad de los Andes — Santiago, Chile</div>
+        <div class="job-desc">Evaluación de proyectos universitarios verificando seguridad (HTTPS, TLS, PostgreSQL) y revisando código backend/frontend en JavaScript y Node, con foco en autenticación, certificados y despliegue con Docker y GitHub Actions.</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-period">JUN 2024<br>DIC 2024</div>
+      <div>
+        <div class="job-title">Desarrollador Web & Ciberseguridad</div>
+        <div class="job-company">Blue Lock AI — Santiago, Chile</div>
+        <div class="job-desc">Análisis de vulnerabilidades, pruebas de penetración e integración de plataformas con IA y APIs para cumplimiento legal. Stack: Python, Django, JavaScript, Node, HTML y SQL.</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-period">JUN 2023<br>JUN 2024</div>
+      <div>
+        <div class="job-title">Desarrollador Fullstack</div>
+        <div class="job-company">EPIC — Universidad de los Andes</div>
+        <div class="job-desc">Proyecto que ayuda a estudiantes a mejorar su Elevator Pitch mediante un bot de Telegram. Implementación de nuevas funcionalidades orientadas a optimizar la UX/UI.</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-period">ENE 2021<br>MAR 2021</div>
+      <div>
+        <div class="job-title">Desarrollador Frontend</div>
+        <div class="job-company">Evernote — Santiago, Chile</div>
+        <div class="job-desc">Equipo de Autenticación y Perfil. Desarrollo de nuevas funciones en producción para mejorar la experiencia de edición de perfil. Stack: Java, JavaScript y HTML.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Habilidades</div>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <div class="skill-category">Lenguajes</div>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">C#</span>
+          <span class="tag">Ruby</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-category">Web</div>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">Vue.js</span>
+          <span class="tag">Angular</span>
+          <span class="tag">Node</span>
+          <span class="tag">Django</span>
+          <span class="tag">Ruby on Rails</span>
+          <span class="tag">HTML</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-category">Base de Datos</div>
+        <div class="tags">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQLite</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-category">Herramientas</div>
+        <div class="tags">
+          <span class="tag">Git</span>
+          <span class="tag">Docker</span>
+          <span class="tag">AWS</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Azure</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Jira</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Educación</div>
+    <div class="edu">
+      <div class="edu-period">2015 — 2024</div>
+      <div>
+        <div class="edu-title">Ingeniería Civil en Ciencias de la Computación</div>
+        <div class="edu-place">Universidad de los Andes — Santiago, Chile</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Cristobal Lara Bahamondes</span>
+    <span>2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
