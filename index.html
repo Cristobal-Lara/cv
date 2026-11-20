@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cristobal Lara — Software Developer</title>
+<title>Cristobal Lara — Desarrollador Full Stack</title>
+<meta name="description" content="Cristobal Lara, Ingeniero Civil en Ciencias de la Computación y Desarrollador Full Stack (TypeScript, Vue.js, Node.js, Python, Django, PostgreSQL). Disponible para proyectos freelance.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -88,6 +89,7 @@
   section:nth-child(3) { animation-delay: 0.2s; }
   section:nth-child(4) { animation-delay: 0.3s; }
   section:nth-child(5) { animation-delay: 0.4s; }
+  section:nth-child(6) { animation-delay: 0.5s; }
 
   .section-label {
     font-size: 10px;
@@ -147,10 +149,46 @@
     margin-bottom: 8px;
   }
 
+  .job-company a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .job-company a:hover { text-decoration: underline; }
+
+  .job-context {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
   .job-desc {
     color: #4a4640;
     font-size: 12.5px;
     line-height: 1.75;
+  }
+
+  .job-desc ul {
+    list-style: none;
+  }
+
+  .job-desc li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 4px;
+  }
+
+  .job-desc li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+  }
+
+  .job-desc strong {
+    color: var(--ink);
+    font-weight: 500;
   }
 
   /* SKILLS */
@@ -232,6 +270,10 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    header, section { animation: none; }
+  }
+
   @media (max-width: 600px) {
     .page { padding: 40px 24px 60px; }
     header { grid-template-columns: 1fr; }
@@ -247,30 +289,38 @@
 
   <header>
     <div>
-      <div class="name">Cristobal Lara Bahamondes</div>
-      <div class="title-tag">Software Developer</div>
+      <div class="name">Cristobal <em>Lara</em></div>
+      <div class="title-tag">Desarrollador Full Stack</div>
     </div>
     <div class="contact">
       <div>+56 9 3428 3502</div>
       <div><a href="mailto:cristobal.p.lara@gmail.com">cristobal.p.lara@gmail.com</a></div>
+      <div><a href="https://www.linkedin.com/in/cristobal-lara-9478b1201/">linkedin.com/in/cristobal-lara-9478b1201</a></div>
       <div>Santiago, Chile</div>
     </div>
   </header>
 
   <section>
-    <div class="section-label">Sobre mí</div>
-    <p class="about-text">Ingeniero Civil en Ciencias de la Computación con foco en desarrollo web y diseño de software. Me caracterizo por aprender rápido, tomar decisiones con autonomía y moverme bien en entornos dinámicos. Responsable, comprometido y buen compañero de equipo.</p>
+    <div class="section-label">Perfil profesional</div>
+    <p class="about-text">Ingeniero Civil en Ciencias de la Computación y Desarrollador Full Stack (TypeScript, Vue.js, Node.js, Python, Django, PostgreSQL). Actualmente freelance en una startup de salud digital, desarrollando el portal de profesionales de una plataforma de fichas clínicas electrónicas. Experiencia en ciberseguridad, revisión de código y CI/CD con Docker y GitHub Actions. Disponible para nuevos proyectos freelance.</p>
   </section>
 
   <section>
-    <div class="section-label">Experiencia</div>
+    <div class="section-label">Experiencia laboral</div>
 
     <div class="job">
       <div class="job-period">MAR 2026<br>Actualidad</div>
       <div>
-        <div class="job-title">Desarrollador Frontend</div>
-        <div class="job-company">TesmoTech — Santiago, Chile</div>
-        <div class="job-desc">Desarrollo de interfaces web con Vue.js, consumiendo APIs REST e integrando funcionalidades de backend. Configuración de entornos Dockerizados, debugging y optimización de UX.</div>
+        <div class="job-title">Desarrollador Frontend Freelance</div>
+        <div class="job-company"><a href="https://www.tesmotech.com">TesmoTech</a> — Viña del Mar, Chile</div>
+        <div class="job-context">Startup de salud digital seleccionada en Start-Up Chile BUILD 12 (Corfo, 2026). Plataforma SaaS de fichas clínicas electrónicas interoperables (HL7 FHIR).</div>
+        <div class="job-desc">
+          <ul>
+            <li>Desarrollo frontend del portal para profesionales de la salud con Vue 3, TypeScript, Pinia y Vite, integrando APIs REST. <strong>Más de 200 commits y 90 pull requests</strong> integrados.</li>
+            <li>Implementación de módulos de gestión de pacientes, atención clínica y agenda de horas, con componentes de UI reutilizables y diseño responsive.</li>
+            <li>Trabajo con Git Flow, Jira y revisión de código mediante pull requests en GitHub.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -279,25 +329,41 @@
       <div>
         <div class="job-title">Ayudante de Cátedra</div>
         <div class="job-company">Universidad de los Andes — Santiago, Chile</div>
-        <div class="job-desc">Evaluación de proyectos universitarios verificando seguridad (HTTPS, TLS, PostgreSQL) y revisando código backend/frontend en JavaScript y Node, con foco en autenticación, certificados y despliegue con Docker y GitHub Actions.</div>
+        <div class="job-desc">
+          <ul>
+            <li>Evaluación de <strong>más de 60 proyectos web</strong> de estudiantes, revisando código backend y frontend en JavaScript y Node.js.</li>
+            <li>Revisión de seguridad (HTTPS/TLS, autenticación, PostgreSQL) y de pipelines CI/CD con Docker y GitHub Actions.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="job">
       <div class="job-period">JUN 2024<br>DIC 2024</div>
       <div>
-        <div class="job-title">Desarrollador Web & Ciberseguridad</div>
+        <div class="job-title">Desarrollador Web y Asistente de Ciberseguridad</div>
         <div class="job-company">Blue Lock AI — Santiago, Chile</div>
-        <div class="job-desc">Análisis de vulnerabilidades, pruebas de penetración e integración de plataformas con IA y APIs para cumplimiento legal. Stack: Python, Django, JavaScript, Node, HTML y SQL.</div>
+        <div class="job-desc">
+          <ul>
+            <li>Análisis de vulnerabilidades y pruebas de penetración sobre <strong>4 aplicaciones web</strong>.</li>
+            <li>Evaluación de ciberseguridad de un cliente del sector minero: pruebas de infraestructura de red, revisión de estaciones de trabajo y redacción del informe de madurez de ciberseguridad.</li>
+            <li>Integración de plataformas con inteligencia artificial y APIs para automatizar procesos de cumplimiento legal, usando Python, Django y Node.js.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="job">
       <div class="job-period">JUN 2023<br>JUN 2024</div>
       <div>
-        <div class="job-title">Desarrollador Fullstack</div>
+        <div class="job-title">Desarrollador Backend</div>
         <div class="job-company">EPIC — Universidad de los Andes</div>
-        <div class="job-desc">Proyecto que ayuda a estudiantes a mejorar su Elevator Pitch mediante un bot de Telegram. Implementación de nuevas funcionalidades orientadas a optimizar la UX/UI.</div>
+        <div class="job-desc">
+          <ul>
+            <li>Diseño e implementación de un nuevo modelo de tutoría con retroalimentación personalizada para un bot de Telegram que ayuda a estudiantes a mejorar su Elevator Pitch (Python, Django, PostgreSQL, Google Cloud Speech-to-Text).</li>
+            <li>Estudio A/B con <strong>más de 30 estudiantes</strong> de Ingeniería, midiendo usabilidad y desempeño.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -306,7 +372,13 @@
       <div>
         <div class="job-title">Desarrollador Frontend</div>
         <div class="job-company">Evernote — Santiago, Chile</div>
-        <div class="job-desc">Equipo de Autenticación y Perfil. Desarrollo de nuevas funciones en producción para mejorar la experiencia de edición de perfil. Stack: Java, JavaScript y HTML.</div>
+        <div class="job-desc">
+          <ul>
+            <li>Mejora del sistema de carga de foto de perfil en JavaScript (recorte, validación de tamaño, barra de progreso), integrada en las versiones de escritorio, web y móvil.</li>
+            <li>Resolución de una falla crítica que hacía caer toda la aplicación cuando caía un servicio externo, desacoplando la dependencia y agregando manejo de excepciones.</li>
+            <li>Desarrollo de un dashboard para registrar las conexiones de usuarios y el uso del servicio de fotos de perfil.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -318,40 +390,64 @@
         <div class="skill-category">Lenguajes</div>
         <div class="tags">
           <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
           <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Java</span>
           <span class="tag">C#</span>
           <span class="tag">Ruby</span>
         </div>
       </div>
       <div class="skill-row">
-        <div class="skill-category">Web</div>
+        <div class="skill-category">Frontend</div>
         <div class="tags">
+          <span class="tag">Vue 3</span>
+          <span class="tag">Pinia</span>
+          <span class="tag">Vite</span>
           <span class="tag">React</span>
-          <span class="tag">Vue.js</span>
+          <span class="tag">Next.js</span>
           <span class="tag">Angular</span>
-          <span class="tag">Node</span>
-          <span class="tag">Django</span>
-          <span class="tag">Ruby on Rails</span>
           <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
         </div>
       </div>
       <div class="skill-row">
-        <div class="skill-category">Base de Datos</div>
+        <div class="skill-category">Backend</div>
+        <div class="tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Django</span>
+          <span class="tag">Ruby on Rails</span>
+          <span class="tag">APIs REST</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-category">Bases de datos</div>
         <div class="tags">
           <span class="tag">PostgreSQL</span>
           <span class="tag">SQLite</span>
         </div>
       </div>
       <div class="skill-row">
-        <div class="skill-category">Herramientas</div>
+        <div class="skill-category">DevOps y Cloud</div>
         <div class="tags">
-          <span class="tag">Git</span>
           <span class="tag">Docker</span>
-          <span class="tag">AWS</span>
-          <span class="tag">GCP</span>
-          <span class="tag">Azure</span>
           <span class="tag">GitHub Actions</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
           <span class="tag">Jira</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Google Cloud</span>
+          <span class="tag">Azure</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-category">Ciberseguridad</div>
+        <div class="tags">
+          <span class="tag">Análisis de vulnerabilidades</span>
+          <span class="tag">Pruebas de penetración</span>
+          <span class="tag">Auditoría de redes</span>
+          <span class="tag">HTTPS/TLS</span>
         </div>
       </div>
     </div>
@@ -360,16 +456,30 @@
   <section>
     <div class="section-label">Educación</div>
     <div class="edu">
-      <div class="edu-period">2015 — 2024</div>
+      <div class="edu-period">2024</div>
       <div>
-        <div class="edu-title">Ingeniería Civil en Ciencias de la Computación</div>
+        <div class="edu-title">Ingeniero Civil en Ciencias de la Computación</div>
         <div class="edu-place">Universidad de los Andes — Santiago, Chile</div>
       </div>
     </div>
   </section>
 
+  <section>
+    <div class="section-label">Idiomas</div>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <div class="skill-category">Español</div>
+        <div>Nativo</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-category">Inglés</div>
+        <div>Intermedio-avanzado (B2), certificado TOEFL</div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <span>Cristobal Lara Bahamondes</span>
+    <span>Cristobal Lara</span>
     <span>2026</span>
   </footer>
 
